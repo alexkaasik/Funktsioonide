@@ -1,12 +1,11 @@
 from math import pi
 from math import sqrt
+from random import *
 
-# 1
-# Kirjuta enda esimene programm, mis väljastab käsureale teksti: “Tere, maailm!”. 
+# 1 Kirjuta enda esimene programm, mis väljastab käsureale teksti: “Tere, maailm!”. 
 # Küsi kasutaja nimi ja muuda tekst, et ta näeks välja nii: “Tere, maailm! Tervitav sind Mati”, kui kasutaja nimi on Mati.
 # Küsi kasutajalt sisend tema vanuse kohta ning väljasta see ekraanile:
 # “Tere, maailm! Tervitav sind Mati! Ma olen N aastat vana.”
-
 print("-----1-----\n")
 
 print("“Tere, maailm!”")
@@ -65,20 +64,23 @@ print("diagonaal N ja M", round(sqrt(N**2+M**2),3) )
 
 # 6 Leidke järgnevast näiteprogrammist semantiline viga:
 print("\n-----6-----\n")
-
-aeg = float(input("Mitu tundi kulus sõiduks? "))
-teepikkus = float(input("Mitu kilomeetrit sõitsid? "))
-kiirus = aeg / teepikkus
-print("Sinu kiirus oli " + str(kiirus) + " km/h")
-
-# 0/0 = ZeroDivisionError: division by zero
+try:
+    aeg = float(input("Mitu tundi kulus sõiduks? "))
+    teepikkus = float(input("Mitu kilomeetrit sõitsid? "))
+    kiirus = teepikkus/aeg
+    print("Sinu kiirus oli " + str(kiirus) + " km/h")
+except:
+    print("ZeroDivisionError: division by zero or/and Could not convert string to float: 'word'")
 
 # 7 Koostada programm, mis arvutab aritmeetilise keskmise suvalisest etteantud 5 täis arvust.
 print("\n-----7-----\n")
-nua=1
-while(nua <= 5):
-    print(nua)
-    nua+=1
+j0=randint(1,10)
+j1=randint(1,10)
+j2=randint(1,10)
+j3=randint(1,10)
+j4=randint(1,10)
+
+print("Arvude {0},{1},{2},{3} ja {4} aritmeetilise keskmise {5}".format(j0,j1,j2,j3,j4, (j0+j1+j2+j3+j4)/5) )
 
 # 8 Joonista samasugune konn #
 print("\n-----8-----\n")
@@ -90,9 +92,9 @@ print('^^ "" ^^')
 # 9 Arvutame kolmnurga ümbermõõdu. Loo kolm täisarvulist muutujat a, b, c. Loo valem, mis arvutab kolmnurga ümbermõõdu (P=a+b+c)
 print("\n-----9-----\n")
 
-a=int(input("a: "))
-b=int(input("b: "))
-c=int(input("c: "))
+a=randint(1,10)
+b=randint(1,10)
+c=randint(1,10)
 P=a+b+c
 print(P)
 
@@ -102,7 +104,5 @@ print(P)
 #    Koosta programm, mis leiab kui palju peab igaüks maksma
 print("\n-----10-----\n")
 
-P = 12.90
-Per= 10
-Pansw = round(P+(P*(10/100)),2)
-print("leiab ", Pansw,"€")
+P = int(input("Palju sõbre: "))
+print("palju maksmab sõbraga", round( P/(12.90 * (1 + 10 / 100 ) ), 2),"€")
